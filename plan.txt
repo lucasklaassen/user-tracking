@@ -1,5 +1,7 @@
 Goal: create an app that can display a website and show a users mouse movement on it.
 
+Set up a github!
+
 Client Side Javascript Snippet:
 1. Download the assets of the website to be viewed externally
     - The HTML of the page
@@ -12,12 +14,11 @@ Tracking:
   -
 2. User session info to differ each user
 
-Back-end Service: (NodeJS Lambdas)
-1. NodeJS Lambda function that will recieve HTML, CSS, JS in the body with a filename -> POST
+Back-end Service: (NodeJS Express server)
+1. NodeJS bot that will fetch external CSS and Images from visited pages
     - Upload assets to S3 bucket
-2. Lambda to recieve data on mouse movements (JSON) -> POST
-3. Read the mouse movement data -> GET
-4. Serve up the S3 assets to be viewable by a front-end
+2. Endpoint to recieve event data from client website (mouse movements, dom changes, button clicks) (JSON) -> POST
+3. Read the event data (mouse movements to start) -> GET
 
 Front-end Service (Viewing user sessions) -> Angular 9
 1. Display the front-end assets from S3 (served up from cloudfront)
