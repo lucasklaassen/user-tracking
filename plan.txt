@@ -1,7 +1,5 @@
 Goal: create an app that can display a website and show a users mouse movement on it.
 
-Set up a github!
-
 Client Side Javascript Snippet:
 1. Download the assets of the website to be viewed externally
     - The HTML of the page
@@ -11,7 +9,6 @@ Client Side Javascript Snippet:
 
 Tracking:
 1. Define a payload of information that the front-end will send for mouse movement
-  -
 2. User session info to differ each user
 
 Back-end Service: (NodeJS Express server)
