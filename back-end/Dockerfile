@@ -12,4 +12,5 @@ RUN npm install
 COPY . .
 
 EXPOSE 3000
-CMD [ "node", "server.js" ]
+
+CMD ["./node_modules/.bin/nodemon"]

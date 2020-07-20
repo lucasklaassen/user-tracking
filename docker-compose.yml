@@ -5,6 +5,8 @@ services:
     build: admin-app
     ports:
       - "4209:4200"
+    volumes:
+      - $PWD/admin-app:/app
     networks:
       custom_network:
         ipv4_address: 172.30.1.1
@@ -15,6 +17,8 @@ services:
     build: back-end
     ports:
       - "3009:3000"
+    volumes:
+      - $PWD/back-end:/usr/src/app
     networks:
       custom_network:
         ipv4_address: 172.30.1.2
@@ -23,9 +27,20 @@ services:
     build: client-site
     ports:
       - "8089:8080"
+    volumes:
+      - $PWD/client-site:/app
     networks:
       custom_network:
         ipv4_address: 172.30.1.3
+  deploy:
+    container_name: user-tracking-deploy
+    build: deploy
+    environment:
+      AWS_CONFIG_FILE: "/root/.aws/config"
+    volumes:
+      - ~/.aws/:/root/.aws/
+      - ~/.ssh/:/root/.ssh/
+      - $PWD:/code
 
 networks:
   custom_network:
